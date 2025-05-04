@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.expanded_div .title {
+  display: none;
+}
+
+.title2 {
+  display: none;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.collapsed_div .title {
+  display: none;
+}
+
+.collapsed_div .title2 {
+  display: block;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    bottom: 0px;
+    left: 0%;
+    transform: none;
+  }
+  to {
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+  }
+}

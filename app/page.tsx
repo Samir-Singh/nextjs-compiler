@@ -22,7 +22,9 @@ export default function Home() {
               key={item?.id}
               onMouseOver={() => setExpand(item?.id)}
               onMouseOut={() => setExpand(null)}
-              className={`transition-all duration-500 ease-in-out flex justify-center items-end ${
+              className={`${isCollapsed && "collapsed_div"} ${
+                isExpanded && "expanded_div"
+              } transition-all duration-500 ease-in-out relative ${
                 isExpanded ? "w-full" : "w-1/4"
               } h-full bg-[url('/coworking1.jpg')] bg-no-repeat border-b-6 ${
                 item?.id % 2 === 0 ? "border-gray-300" : "border-red-600"
@@ -31,11 +33,13 @@ export default function Home() {
                 backgroundImage: isExpanded ? "none" : `url(${item?.img})`,
               }}
             >
-              <span
-                className={`text-2xl text-white font-medium mb-10 transition-transform duration-500  ${
-                  isCollapsed ? "-rotate-90" : ""
-                }`}
-              >
+              <span className="horizontal_line w-5 h-[3px] bg-white absolute bottom-20 left-0"></span>
+
+              <span className="title text-2xl text-white font-medium absolute text-nowrap">
+                {item?.title}
+              </span>
+
+              <span className="title2 text-2xl text-white font-medium absolute text-nowrap text-start w-full">
                 {item?.title}
               </span>
             </div>
